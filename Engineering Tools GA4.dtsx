@@ -1,0 +1,2219 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/13/2022 1:24:35 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="USMTNASDBINDB09"
+  DTS:CreatorName="EMRSN\E1354595"
+  DTS:DTSID="{4806E257-ACD7-4F69-87BA-724A56C7FB9A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3008.28"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Engineering Tools GA4"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{1F7526AE-1710-4C7A-9C05-9A68BF0F332B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Digital Intelligence Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3450F5C4-590D-4B60-9C69-687A69993CF6}"
+      DTS:ObjectName="Digital Intelligence Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ATSLBI_SQLDW_DEV;Initial Catalog=Digital Intelligence Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Eng Tools Lookup Table]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{DF77D3AF-D93B-4157-80CC-5B51E78F1E20}"
+      DTS:ObjectName="Eng Tools Lookup Table">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\FlatFiles\Digital Intelligence\Engineering Tools GA4\GA-EngineeringToolsLookUp.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="View_ID"
+              DTS:DTSID="{D0A61F87-E4A3-4AC6-89C2-1542277BBB47}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="URL"
+              DTS:DTSID="{C21C9235-6AEE-47EC-8F60-EC3930FCFA22}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Value"
+              DTS:DTSID="{5BE0A9F2-B4D2-48B4-AD8D-B1060B1252C9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="25"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Type"
+              DTS:DTSID="{052C42EE-A114-4536-96E4-095E4B1A4C5B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[GA4 Eng Tools]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{3A81F432-2E43-4A40-8B02-27596221E36C}"
+      DTS:ObjectName="GA4 Eng Tools">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\FlatFiles\Digital Intelligence\Engineering Tools GA4\GA4 API Engineering Tools.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date"
+              DTS:DTSID="{615C7595-5B29-432D-B73E-443E6718634F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="hostName"
+              DTS:DTSID="{43DD6720-83BB-4BFD-A5C3-78AE87381152}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="5000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pagePathPlusQueryString"
+              DTS:DTSID="{6A183E20-E99B-4CE9-BBFF-63609D5CDA1E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="countryId"
+              DTS:DTSID="{84482675-1BFC-4D44-809D-9B88DAFDD43D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="25"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="deviceCategory"
+              DTS:DTSID="{E555B701-15FF-445C-942C-A848A5AE7753}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="eventCount"
+              DTS:DTSID="{8DE57389-DBD4-43D4-A730-3363ECAA698B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sessions"
+              DTS:DTSID="{F8BA0882-FAAB-4544-88E5-4627E9099847}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="engagedSessions"
+              DTS:DTSID="{CD59C4B6-273D-4DE3-BB0A-AD8805EF312B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="screenPageViews"
+              DTS:DTSID="{CCF2CA96-7514-4041-848D-98C5B858F909}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="userEngagementDuration"
+              DTS:DTSID="{59877CA8-A1DB-4184-9FF4-BB3328217A2C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[USMTNASDBINDB09\ATSLBI_SQLDW_DEV.Digital Intelligence]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{ACCFA0A5-21E8-4D90-B344-67A116D97FD7}"
+      DTS:ObjectName="USMTNASDBINDB09\ATSLBI_SQLDW_DEV.Digital Intelligence">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=USMTNASDBINDB09\ATSLBI_SQLDW_DEV;Initial Catalog=Digital Intelligence;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[USMTNASDBINDB09\ATSLBI_SQLDW_DEV.Digital Intelligence Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{81F844B2-A2FD-48B0-A682-F8FA13B686E5}"
+      DTS:ObjectName="USMTNASDBINDB09\ATSLBI_SQLDW_DEV.Digital Intelligence Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=USMTNASDBINDB09\ATSLBI_SQLDW_DEV;Initial Catalog=Digital Intelligence Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute API"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{F0302D36-D055-46B5-859F-335589A9B678}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute API"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="E:\FlatFiles\Digital Intelligence\Engineering Tools GA4\execute API Call.bat" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\GA4 Engineering Tools"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{073C868B-138B-48CD-81FB-856AA4FA6459}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GA4 Engineering Tools">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\GA4 Engineering Tools\Eng Tools Data"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{45125AF0-D68B-45EE-8694-2455959E8DFF}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Eng Tools Data"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Audit Columns"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Inputs[Derived Column Input].Columns[date]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="date"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[date]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[LEFT](#{Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[date]},4) + "-" + [SUBSTRING](#{Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[date]},5,2) + "-" + [RIGHT](#{Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[date]},2)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">LEFT(date,4) + "-" + SUBSTRING(date,5,2) + "-" + RIGHT(date,2)</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Output].Columns[rec_creation_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Output].Columns[rec_creation_date]"
+                          name="rec_creation_date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Output].Columns[rec_update_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Output].Columns[rec_update_date]"
+                          name="rec_update_date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Output].Columns[datasource_num_id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Output].Columns[datasource_num_id]"
+                          name="datasource_num_id"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">403</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">403</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Output].Columns[source_unique_id]"
+                          dataType="bytes"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="150"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Output].Columns[source_unique_id]"
+                          name="source_unique_id"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">""</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">""</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DGTL_INTEL_GA4_ENG_TOOLS_TS"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DGTL_INTEL_GA4_ENG_TOOLS_TS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[USMTNASDBINDB09\ATSLBI_SQLDW_DEV.Digital Intelligence Staging]"
+                      connectionManagerRefId="Package.ConnectionManagers[USMTNASDBINDB09\ATSLBI_SQLDW_DEV.Digital Intelligence Staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].Columns[hostName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="hostName"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[hostname]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[hostName]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].Columns[rec_creation_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="rec_creation_date"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[rec_creation_date]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Output].Columns[rec_creation_date]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].Columns[rec_update_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="rec_update_date"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[rec_update_date]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Output].Columns[rec_update_date]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].Columns[datasource_num_id]"
+                          cachedDataType="i4"
+                          cachedName="datasource_num_id"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[datasource_num_id]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Output].Columns[datasource_num_id]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].Columns[source_unique_id]"
+                          cachedDataType="wstr"
+                          cachedName="source_unique_id"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[source_unique_id]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Output].Columns[source_unique_id]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].Columns[date]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="date"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_date]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[date]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].Columns[countryId]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="countryId"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_countryisocode]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[countryId]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].Columns[deviceCategory]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="deviceCategory"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_devicecategory]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[deviceCategory]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].Columns[eventCount]"
+                          cachedDataType="i4"
+                          cachedName="eventCount"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_totalevents]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[eventCount]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].Columns[sessions]"
+                          cachedDataType="i4"
+                          cachedName="sessions"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_sessions]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[sessions]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].Columns[engagedSessions]"
+                          cachedDataType="i4"
+                          cachedName="engagedSessions"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_engagedsessions]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[engagedSessions]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].Columns[screenPageViews]"
+                          cachedDataType="i4"
+                          cachedName="screenPageViews"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_pageviews]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[screenPageViews]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].Columns[userEngagementDuration]"
+                          cachedDataType="i8"
+                          cachedName="userEngagementDuration"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_engagementduration]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[userEngagementDuration]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].Columns[pagePathPlusQueryString]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="pagePathPlusQueryString"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_pagepath]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[pagePathPlusQueryString]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_date]"
+                          dataType="dbDate"
+                          name="ga_date" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[hostname]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="hostname" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_pagepath]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="ga_pagepath" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_countryisocode]"
+                          dataType="wstr"
+                          length="10"
+                          name="ga_countryisocode" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_devicecategory]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="ga_devicecategory" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_totalevents]"
+                          dataType="i4"
+                          name="ga_totalevents" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_sessions]"
+                          dataType="i4"
+                          name="ga_sessions" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_engagedsessions]"
+                          dataType="i4"
+                          name="ga_engagedsessions" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_pageviews]"
+                          dataType="i4"
+                          name="ga_pageviews" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[ga_engagementduration]"
+                          dataType="i8"
+                          name="ga_engagementduration" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="name" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[bu]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="bu" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[classification]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="classification" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[rec_creation_date]"
+                          dataType="dbTimeStamp"
+                          name="rec_creation_date" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[rec_update_date]"
+                          dataType="dbTimeStamp"
+                          name="rec_update_date" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[datasource_num_id]"
+                          dataType="i4"
+                          name="datasource_num_id" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input].ExternalColumns[source_unique_id]"
+                          dataType="bytes"
+                          length="150"
+                          name="source_unique_id" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="GA4 Eng Tools CSV"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[GA4 Eng Tools]"
+                      connectionManagerRefId="Package.ConnectionManagers[GA4 Eng Tools]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[date]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[date]"
+                          length="10"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[date]"
+                          name="date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[hostName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[hostName]"
+                          length="200"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[hostName]"
+                          name="hostName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[countryId]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[countryId]"
+                          length="10"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[countryId]"
+                          name="countryId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[deviceCategory]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[deviceCategory]"
+                          length="15"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[deviceCategory]"
+                          name="deviceCategory"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[eventCount]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[eventCount]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[eventCount]"
+                          name="eventCount"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[sessions]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[sessions]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[sessions]"
+                          name="sessions"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[engagedSessions]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[engagedSessions]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[engagedSessions]"
+                          name="engagedSessions"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[screenPageViews]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[screenPageViews]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[screenPageViews]"
+                          name="screenPageViews"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[userEngagementDuration]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[userEngagementDuration]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[userEngagementDuration]"
+                          name="userEngagementDuration"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[pagePathPlusQueryString]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[pagePathPlusQueryString]"
+                          length="500"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].Columns[pagePathPlusQueryString]"
+                          name="pagePathPlusQueryString"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="date" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[hostName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="hostName" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[countryId]"
+                          dataType="wstr"
+                          length="10"
+                          name="countryId" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[deviceCategory]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="deviceCategory" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[eventCount]"
+                          dataType="i4"
+                          name="eventCount" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[sessions]"
+                          dataType="i4"
+                          name="sessions" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[engagedSessions]"
+                          dataType="i4"
+                          name="engagedSessions" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[screenPageViews]"
+                          dataType="i4"
+                          name="screenPageViews" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[userEngagementDuration]"
+                          dataType="i8"
+                          name="userEngagementDuration" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output].ExternalColumns[pagePathPlusQueryString]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5000"
+                          name="pagePathPlusQueryString" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\GA4 Engineering Tools\Eng Tools Data.Paths[Derived Column Output]"
+                  endId="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\GA4 Engineering Tools\Eng Tools Data.Paths[Flat File Source Output]"
+                  endId="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns.Inputs[Derived Column Input]"
+                  name="Flat File Source Output"
+                  startId="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{23a71fe2-9f5a-4343-b1a8-ebf530b83a58}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Eng Tools Lookup Table"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Audit Columns"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Inputs[Derived Column Input].Columns[view_id]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="view_id"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[view_id]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Inputs[Derived Column Input].Columns[url]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="url"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[url]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Inputs[Derived Column Input].Columns[value]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="value"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[value]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Inputs[Derived Column Input].Columns[type]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="type"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[type]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Output].Columns[rec_creation_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Output].Columns[rec_creation_date]"
+                          name="rec_creation_date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Output].Columns[rec_update_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Output].Columns[rec_update_date]"
+                          name="rec_update_date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Output].Columns[datasource_num_id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Output].Columns[datasource_num_id]"
+                          name="datasource_num_id"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">403</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">403</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Output].Columns[source_unique_id]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="375"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Output].Columns[source_unique_id]"
+                          name="source_unique_id"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,12,1252)#{Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[view_id]} + "~" + #{Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[url]} + "~" + #{Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[value]} + "~" + #{Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[type]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,12,1252)view_id + "~" + url + "~" + value + "~" + type</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Check Existing Records"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Check Existing Records"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DGTL_INTEL_GA_ENG_TOOLS_L]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DGTL_INTEL_GA_ENG_TOOLS_L]) [refTable]
+where [refTable].[source_unique_id] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="view_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="url" dataType="DT_STR" length="250" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="value" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="type" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="rec_creation_date" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_update_date" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="datasource_num_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="source_unique_id" dataType="DT_STR" length="261" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Output].Columns[source_unique_id]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Check Existing Records.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Digital Intelligence Staging]"
+                      connectionManagerRefId="Package.ConnectionManagers[Digital Intelligence Staging]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Check Existing Records.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Check Existing Records.Inputs[Lookup Input].Columns[source_unique_id]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="375"
+                          cachedName="source_unique_id"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Output].Columns[source_unique_id]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">source_unique_id</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Check Existing Records.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Check Existing Records.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Check Existing Records.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Check Existing Records.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Check Existing Records.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Check Existing Records.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Check Existing Records.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Check Existing Records.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Check Existing Records.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Check Existing Records.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DGTL_INTEL_GA_ENG_TOOLS_L"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DGTL_INTEL_GA_ENG_TOOLS_L]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Digital Intelligence Staging]"
+                      connectionManagerRefId="Package.ConnectionManagers[Digital Intelligence Staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].Columns[view_id]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="view_id"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].ExternalColumns[view_id]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[view_id]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].Columns[url]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="url"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].ExternalColumns[url]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[url]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].Columns[value]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="value"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].ExternalColumns[value]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[value]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].Columns[type]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="type"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].ExternalColumns[type]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[type]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].Columns[rec_creation_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="rec_creation_date"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].ExternalColumns[rec_creation_date]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Output].Columns[rec_creation_date]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].Columns[rec_update_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="rec_update_date"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].ExternalColumns[rec_update_date]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Output].Columns[rec_update_date]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].Columns[datasource_num_id]"
+                          cachedDataType="i4"
+                          cachedName="datasource_num_id"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].ExternalColumns[datasource_num_id]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Output].Columns[datasource_num_id]" />
+                        <inputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].Columns[source_unique_id]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="375"
+                          cachedName="source_unique_id"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].ExternalColumns[source_unique_id]"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Output].Columns[source_unique_id]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].ExternalColumns[view_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="view_id" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].ExternalColumns[url]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="url" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].ExternalColumns[value]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="value" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].ExternalColumns[type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="type" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].ExternalColumns[rec_creation_date]"
+                          dataType="dbTimeStamp"
+                          name="rec_creation_date" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].ExternalColumns[rec_update_date]"
+                          dataType="dbTimeStamp"
+                          name="rec_update_date" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].ExternalColumns[datasource_num_id]"
+                          dataType="i4"
+                          name="datasource_num_id" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input].ExternalColumns[source_unique_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="375"
+                          name="source_unique_id" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Lookup Table"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Eng Tools Lookup Table]"
+                      connectionManagerRefId="Package.ConnectionManagers[Eng Tools Lookup Table]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[view_id]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].ExternalColumns[View_ID]"
+                          length="50"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[view_id]"
+                          name="view_id"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[url]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].ExternalColumns[URL]"
+                          length="250"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[url]"
+                          name="url"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[value]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].ExternalColumns[Value]"
+                          length="100"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[value]"
+                          name="value"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[type]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].ExternalColumns[Type]"
+                          length="25"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].Columns[type]"
+                          name="type"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].ExternalColumns[View_ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="View_ID" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].ExternalColumns[URL]"
+                          codePage="1252"
+                          dataType="str"
+                          length="250"
+                          name="URL" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].ExternalColumns[Value]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Value" />
+                        <externalMetadataColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output].ExternalColumns[Type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Type" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table.Paths[Derived Column Output]"
+                  endId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Check Existing Records.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table.Paths[Flat File Source Output]"
+                  endId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns.Inputs[Derived Column Input]"
+                  name="Flat File Source Output"
+                  startId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table.Outputs[Flat File Source Output]" />
+                <path
+                  refId="Package\GA4 Engineering Tools\Eng Tools Lookup Table.Paths[Lookup No Match Output]"
+                  endId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L.Inputs[OLE DB Destination Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Check Existing Records.Outputs[Lookup No Match Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GA4 Engineering Tools\Merge into target"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B0FE9527-F9E6-426C-8C8E-80826104B7B8}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Merge into target"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{ACCFA0A5-21E8-4D90-B344-67A116D97FD7}"
+              SQLTask:SqlStatementSource="MERGE INTO [Digital Intelligence].[dbo].[DGTL_INTEL_GA4_ENG_TOOLS_T] tgt&#xA;USING(Select * from  [Digital Intelligence Staging].[dbo].[DGTL_INTEL_GA4_ENG_TOOLS_TS]) stg&#xA;ON tgt.[SOURCE_UNIQUE_ID] = stg.[SOURCE_UNIQUE_ID]&#xA;&#xA;WHEN matched THEN&#xA;update set tgt.ga_totalevents = stg.ga_totalevents&#xA;    ,tgt.ga_sessions = stg.ga_sessions&#xA;&#x9;,tgt.ga_engagedsessions = stg.ga_engagedsessions&#xA;&#x9;,tgt.ga_pageviews = stg.ga_pageviews&#xA;&#x9;,tgt.ga_engagementduration = stg.ga_engagementduration&#xA;&#x9;,tgt.rec_update_date = getdate()&#xA;&#xA;WHEN NOT matched THEN&#xA;INSERT(ga_date&#xA;&#x9;,hostname&#xA;&#x9;,ga_pagepath&#xA;&#x9;,ga_countryisocode&#xA;&#x9;,ga_devicecategory&#xA;&#x9;,ga_totalevents&#xA;&#x9;,ga_sessions&#xA;&#x9;,ga_engagedsessions&#xA;&#x9;,ga_pageviews&#xA;&#x9;,ga_engagementduration&#xA;&#x9;,name&#xA;&#x9;,bu&#xA;&#x9;,classification&#xA;&#x9;,rec_creation_date&#xA;&#x9;,rec_update_date&#xA;&#x9;,datasource_num_id&#xA;&#x9;,source_unique_id&#xA;  )&#xA;&#xA;VALUES(stg.ga_date&#xA;&#x9;,stg.hostname&#xA;&#x9;,stg.ga_pagepath&#xA;&#x9;,stg.ga_countryisocode&#xA;&#x9;,stg.ga_devicecategory&#xA;&#x9;,stg.ga_totalevents&#xA;&#x9;,stg.ga_sessions&#xA;&#x9;,stg.ga_engagedsessions&#xA;&#x9;,stg.ga_pageviews&#xA;&#x9;,stg.ga_engagementduration&#xA;&#x9;,stg.name&#xA;&#x9;,stg.bu&#xA;&#x9;,stg.classification&#xA;&#x9;,stg.rec_creation_date&#xA;&#x9;,stg.rec_update_date&#xA;&#x9;,stg.datasource_num_id&#xA;&#x9;,stg.source_unique_id&#xA;);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GA4 Engineering Tools\Update source_unique_id, name, bu, classification"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8e4e0943-3032-4766-b206-ff3f158128b3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update source_unique_id, name, bu, classification"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3450F5C4-590D-4B60-9C69-687A69993CF6}"
+              SQLTask:SqlStatementSource="Update [Digital Intelligence Staging].[dbo].[DGTL_INTEL_GA4_ENG_TOOLS_TS]&#xA;set source_unique_id = hashbytes('MD5',hostname+ga_pagepath+ga_devicecategory+cast([ga_date] as varchar(10)))+hashbytes('MD5',ga_countryisocode);&#xA;&#xA;Update [Digital Intelligence Staging].[dbo].[DGTL_INTEL_GA4_ENG_TOOLS_TS]&#xA;set bu = (select top 1 Value from [Digital Intelligence Staging].[dbo].[DGTL_INTEL_GA_ENG_TOOLS_L] where charindex(lower(URL), lower([ga_pagepath]))&gt;0  and [Type]='BU'),&#xA;[name] = (select top 1 Value from [Digital Intelligence Staging].[dbo].[DGTL_INTEL_GA_ENG_TOOLS_L] where charindex(lower(URL), lower([ga_pagepath]))&gt;0  and [Type]='Name'),&#xA;[classification] = (select top 1 Value from [Digital Intelligence Staging].[dbo].[DGTL_INTEL_GA_ENG_TOOLS_L] where charindex(lower(URL), lower([ga_pagepath]))&gt;0  and [Type]='Classification')&#xA;;&#xA;&#xA;--Actuation Quick Sizing tools naming detection&#xA;Update [Digital Intelligence Staging].[dbo].[DGTL_INTEL_GA4_ENG_TOOLS_TS]&#xA;set [name] = (&#xA; case&#xA;  when charindex('fromPage=quick-sizing', ga_pagepath) &gt; 0 then 'Actuation Quick Sizing (Path 1)'&#xA;  when charindex('guidedSellingProduct=electric', ga_pagepath) &gt; 0 then 'Actuation Quick Sizing (Path 2)'&#xA;  when charindex('guidedSellingProduct=hydraulic', ga_pagepath) &gt; 0 then 'Actuation Quick Sizing (Path 2)'&#xA;  when charindex('fromPage=tools', ga_pagepath) &gt; 0 then 'Actuation Quick Sizing (MyTools#)'&#xA;  when charindex('fromPage=knowledge', ga_pagepath) &gt; 0 then 'Actuation Knowledge Base'&#xA;  else [name]&#xA; end&#xA;),&#xA;[classification] = (&#xA;case &#xA; when charindex('fromPage=knowledge', ga_pagepath) &gt; 0 then 'Reference'&#xA; else [classification]&#xA;end&#xA;)&#xA;where charindex('GlobalConfigurationSystemToolDisplayView', ga_pagepath) &gt; 0&#xA;;&#xA;&#xA;delete from [Digital Intelligence Staging].[dbo].[DGTL_INTEL_GA4_ENG_TOOLS_TS]&#xA;where [name] = 'Actuation Tools'&#xA;;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GA4 Engineering Tools.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{D7201C21-2904-4307-9007-93FD42DBB846}"
+          DTS:From="Package\GA4 Engineering Tools\Eng Tools Data"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\GA4 Engineering Tools\Update source_unique_id, name, bu, classification" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GA4 Engineering Tools.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{F7272DE0-1BD8-449C-A8EC-A47299087E52}"
+          DTS:From="Package\GA4 Engineering Tools\Eng Tools Lookup Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\GA4 Engineering Tools\Update source_unique_id, name, bu, classification" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GA4 Engineering Tools.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{76AD55CF-2977-4D1E-B5CF-34D6D58DE64A}"
+          DTS:From="Package\GA4 Engineering Tools\Update source_unique_id, name, bu, classification"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\GA4 Engineering Tools\Merge into target" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Staging"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{084845F7-6DB9-4B39-AC26-8D224EACFFD9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Staging"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{81F844B2-A2FD-48B0-A682-F8FA13B686E5}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE DGTL_INTEL_GA4_ENG_TOOLS_TS;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2F752A8F-D4FC-4980-B0FF-78E1B1D4E6CF}"
+      DTS:From="Package\Execute API"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Truncate Staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{ECE8253D-B22B-408F-BBBE-94A31338E5FD}"
+      DTS:From="Package\Truncate Staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\GA4 Engineering Tools" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="135.2,41.6"
+          Id="Package\Execute API"
+          TopLeft="174.7,5.49999999999995" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\GA4 Engineering Tools\Eng Tools Data"
+          TopLeft="5.50000000000004,5.49999999999995" />
+        <NodeLayout
+          Size="191.2,41.6"
+          Id="Package\GA4 Engineering Tools\Eng Tools Lookup Table"
+          TopLeft="215.7,5.49999999999995" />
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\GA4 Engineering Tools\Merge into target"
+          TopLeft="231.3,208.7" />
+        <NodeLayout
+          Size="314.4,41.6"
+          Id="Package\GA4 Engineering Tools\Update source_unique_id, name, bu, classification"
+          TopLeft="154.1,107.1" />
+        <EdgeLayout
+          Id="Package\GA4 Engineering Tools.PrecedenceConstraints[Constraint]"
+          TopLeft="80.3,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="179.933333333333,60"
+              Start="0,0"
+              End="179.933333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8177215189874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.8177215189874"
+                    Point2="0,35.8177215189874"
+                    Point3="4,35.8177215189874" />
+                  <mssgle:LineSegment
+                    End="175.933333333333,35.8177215189874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="175.933333333333,35.8177215189874"
+                    Point2="179.933333333333,35.8177215189874"
+                    Point3="179.933333333333,39.8177215189874" />
+                  <mssgle:LineSegment
+                    End="179.933333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GA4 Engineering Tools.PrecedenceConstraints[Constraint 1]"
+          TopLeft="311.3,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.0666666666667,60"
+              Start="0,0"
+              End="51.0666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8177215189874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.8177215189874"
+                    Point2="0,35.8177215189874"
+                    Point3="4,35.8177215189874" />
+                  <mssgle:LineSegment
+                    End="47.0666666666667,35.8177215189874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.0666666666667,35.8177215189874"
+                    Point2="51.0666666666667,35.8177215189874"
+                    Point3="51.0666666666667,39.8177215189874" />
+                  <mssgle:LineSegment
+                    End="51.0666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GA4 Engineering Tools.PrecedenceConstraints[Constraint 2]"
+          TopLeft="311.3,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="473.6,305.6"
+          Size="473.6,348.8"
+          Id="Package\GA4 Engineering Tools"
+          TopLeft="5.50000000000009,208.7" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Truncate Staging"
+          TopLeft="163.1,107.1" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="242.3,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="242.3,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\GA4 Engineering Tools\Eng Tools Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="246.4,41.6"
+          Id="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS"
+          TopLeft="5.50000000000001,208.7" />
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\GA4 Engineering Tools\Eng Tools Data\GA4 Eng Tools CSV"
+          TopLeft="43.9,5.49999999999995" />
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\GA4 Engineering Tools\Eng Tools Data\Audit Columns"
+          TopLeft="55.5,107.1" />
+        <EdgeLayout
+          Id="Package\GA4 Engineering Tools\Eng Tools Data.Paths[Flat File Source Output]"
+          TopLeft="128.7,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GA4 Engineering Tools\Eng Tools Data.Paths[Derived Column Output]"
+          TopLeft="128.7,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\GA4 Engineering Tools\Eng Tools Data\DGTL_INTEL_GA4_ENG_TOOLS_TS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\GA4 Engineering Tools\Eng Tools Lookup Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="252.8,41.6"
+          Id="Package\GA4 Engineering Tools\Eng Tools Lookup Table\DGTL_INTEL_GA_ENG_TOOLS_L"
+          TopLeft="5.50000000000006,310" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Check Existing Records"
+          TopLeft="46,208.5" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Audit Columns"
+          TopLeft="56.5,107" />
+        <NodeLayout
+          Size="132,41.6"
+          Id="Package\GA4 Engineering Tools\Eng Tools Lookup Table\Lookup Table"
+          TopLeft="66,5.5" />
+        <EdgeLayout
+          Id="Package\GA4 Engineering Tools\Eng Tools Lookup Table.Paths[Lookup No Match Output]"
+          TopLeft="132,250">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,20.4453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GA4 Engineering Tools\Eng Tools Lookup Table.Paths[Flat File Source Output]"
+          TopLeft="132,47">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GA4 Engineering Tools\Eng Tools Lookup Table.Paths[Derived Column Output]"
+          TopLeft="132,148.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
